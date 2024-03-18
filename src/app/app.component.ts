@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { InputComponent } from './Input/input.component'
+import { InputComponent } from './input/input.component'
 import { ResultsComponent } from './results/results.component'
 
 @Component({
