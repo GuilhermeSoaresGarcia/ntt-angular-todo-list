@@ -10,8 +10,8 @@
   <div class="d-flex">
     <ol class="mx-auto justify-content-center mt-3">
       <li *ngFor="let item of tasks; let i = index" (click)="completedTask(i)"
-        [ngClass]="{ 'strikethrough': isStriked[i] }" class="mb-2">
-        {{ item }}
+        [ngClass]="{ 'strikethrough': item.selected}" class="mb-2">
+        {{ item.description }}
         <button class="btn btn-danger btn-sm" (click)="removeTask(i)">X</button>
       </li>
     </ol>

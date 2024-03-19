@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
+import { TodoItem } from './interfaces/TodoItem';
 
 @Component({
   selector: 'app-root',
@@ -11,20 +11,19 @@ import { BrowserModule } from '@angular/platform-browser';
 })
 export class AppComponent {
   title = 'ntt-angular-todo-list'
-  task: string = ''
-  tasks: string[] = []
-  isStriked: boolean[] = []
+  task: string = ""
+  tasks: TodoItem[] = []  
 
   insertTask() {
     if (this.task.trim() !== '') {
-      this.tasks.push(this.task)
-      this.isStriked.push(false)
+      const taskObj = { description: this.task, selected: false }
+      this.tasks.push(taskObj)
       this.task = ""
     }
   }
 
-  removeTask(indice: number) {
-    this.tasks.splice(indice, 1)
+  removeTask(index: number) {
+    this.tasks.splice(index, 1)
   }
 
   removeAllTasks() {
@@ -32,9 +31,6 @@ export class AppComponent {
   }
 
   completedTask(index: number) {
-    console.log(this.isStriked[index])
-    this.isStriked[index] = !this.isStriked[index];
+    this.tasks[index] = { ...this.tasks[index], selected: !this.tasks[index].selected };
   }
-
 }
-
