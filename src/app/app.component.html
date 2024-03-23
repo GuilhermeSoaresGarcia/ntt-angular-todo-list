@@ -1,19 +1,41 @@
 <div class="container">
   <h1 class="text-center mt-5">Todo List</h1>
   <div class="text-center">
-    <div class="form-group mx-auto" style="width: 200px;">
+    <div class="form-group mx-auto" style="width: 350px;">
       <input [(ngModel)]="task" class="mb-2" />
-      <button class="btn btn-success mb-2" (click)="insertTask()">Adicionar tarefa</button>
-      <button class="btn btn-danger mb-2" (click)="removeAllTasks()">Limpar lista</button>
+      <div class="row">
+        <div class="col">
+          <button class="btn btn-success btn-block mb-2" (keypress)="handleKeyPress" (click)="insertTask()">Adicionar
+            tarefa</button>
+        </div>
+        <div class="col">
+          <button class="btn btn-danger btn-block mb-2" (click)="removeAllTasks()">Limpar lista</button>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="d-flex">
-    <ol class="mx-auto justify-content-center mt-3">
-      <li *ngFor="let item of tasks; let i = index" (click)="completedTask(i)"
-        [ngClass]="{ 'strikethrough': item.selected}" class="mb-2 cursor-pointer">
-        {{ item.description }}
-        <button class="btn btn-danger btn-sm" (click)="removeTask(i)">X</button>
-      </li>
-    </ol>
+  <div class="table-responsive mt-3">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th style="width: 5%;">#</th>
+          <th>Description</th>
+          <th style="width: 5%;">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of tasks; let i = index" [ngClass]="getTaskBackgroundColor(i)">
+          <td>{{ i + 1 }}</td>
+          <td class="cursor-pointer" (click)="completedTask(i)">
+            <span [ngClass]="{ 'strikethrough': item.selected}">
+              {{ item.description }}
+            </span>
+          </td>
+          <td>
+            <button class="btn btn-danger btn-sm" (click)="removeTask(i)">Remove</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
