@@ -1,15 +1,12 @@
 # NttAngularTodoList
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.0.
+Projeto criado com [Angular CLI](https://github.com/angular/angular-cli) versão 17.3.0 e estilizado com Bootstrap versão 4.3.1.
 
-## Development server
+## Como rodar
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Executar o comando `ng serve` ou `npm start` para iniciar e acessar `http://localhost:4200/`. Foi feito deploy da aplicação em `https://ntt-angular-todo-list.vercel.app/`.
 
-## Code scaffolding
+## Observações
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Inicialmente eu havia feito o layout da aplicação em uma lista numerada, mas resolvi alterar para um layout de tabela porque acho que melhorou a visualização.
+- Aprendi a utilizar o localStore no Angular recentemente então resolvi refatorar o código original para implementar a funcionalidade.
